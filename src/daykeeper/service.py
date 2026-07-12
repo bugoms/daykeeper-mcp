@@ -66,20 +66,29 @@ DEDUP_ALIASES = {
 
 def _norm_public(e: dict) -> dict:
     kind = e["kind"]
+    name = e["name"]
+    is_substitute = name.startswith("대체공휴일")
+    if is_substitute:
+        badge = "대체공휴일"
+        default_care = "원래 공휴일이 휴일과 겹쳐 별도로 지정된 대체공휴일이에요. 연휴 계획 세우기 좋은 날"
+    else:
+        badge = KIND_KO[kind]
+        default_care = _KIND_CARE[kind]
     return {
-        "id": f"pub-{e['year']:04d}{e['month']:02d}{e['day']:02d}-{e['name']}",
-        "name": e["name"],
+        "id": f"pub-{e['year']:04d}{e['month']:02d}{e['day']:02d}-{name}",
+        "name": name,
         "name_en": None,
-        "badge": KIND_KO[kind],
+        "badge": badge,
         "category": "official" if kind in ("holiday", "national", "anniversary") else "culture",
         "origin": None,
-        "care_point": e.get("care_point") or _KIND_CARE[kind],
+        "care_point": e.get("care_point") or default_care,
         "gift_tags": e.get("gift_tags") or [],
         "place_query": e.get("place_query"),
         "year": e["year"],
         "month": e["month"],
         "day": e["day"],
         "kind": kind,
+        "is_holiday": e.get("is_holiday", False),
         "public": True,
     }
 
@@ -124,6 +133,16 @@ def entries_for_date(target: date) -> tuple[list[dict], list[dict]]:
     return curated, public
 
 
+def _tag_keyword(tags: list[str]) -> str | None:
+    """선물 태그에 가장 잘 맞는 대표 검색 키워드 (결정적: 파일 순서 우선)."""
+    best, best_overlap = None, 0
+    for item in GIFT_ITEMS:
+        overlap = len(set(item["tags"]) & set(tags))
+        if overlap > best_overlap:
+            best, best_overlap = item, overlap
+    return best["keywords"][0] if best else None
+
+
 def _entry_lines(entry: dict, target: date | None = None, today: date | None = None) -> list[str]:
     head = f"**{entry['name']}**"
     if entry.get("name_en"):
@@ -136,9 +155,49 @@ def _entry_lines(entry: dict, target: date | None = None, today: date | None = N
     if entry.get("origin"):
         lines.append(f"  - {entry['origin']}")
     lines.append(f"  - 💡 {entry['care_point']}")
+    if entry.get("gift_tags"):
+        kw = _tag_keyword(entry["gift_tags"])
+        if kw:
+            lines.append(f"  - 🎁 [선물하기에서 '{kw}' 검색]({gift_link(kw)})")
     if entry.get("place_query"):
         lines.append(f"  - 📍 [카카오맵에서 '{entry['place_query']}' 검색]({map_link(entry['place_query'])})")
     return lines
+
+
+# ---------------------------------------------------------------- 공휴일 안내
+
+def _canon(name: str) -> str:
+    return DEDUP_ALIASES.get(name, name)
+
+
+def nearest_holidays(ref: date) -> tuple[tuple[date, dict] | None, tuple[date, dict] | None]:
+    """ref 기준 (가장 최근 지나간 공휴일, 다음 공휴일). 대체공휴일 포함, is_holiday 기준."""
+    prev_h = next_h = None
+    holidays = sorted(
+        ((date(p["year"], p["month"], p["day"]), p) for p in PUBLIC_ENTRIES if p.get("is_holiday")),
+        key=lambda t: t[0],
+    )
+    for d, p in holidays:
+        if d < ref:
+            prev_h = (d, p)
+        elif d > ref:
+            next_h = (d, p)
+            break
+    return prev_h, next_h
+
+
+def _holiday_footer(ref: date, today: date, include_prev: bool = True) -> list[str]:
+    prev_h, next_h = nearest_holidays(ref)
+    parts = []
+    if next_h:
+        d, p = next_h
+        parts.append(f"다음 공휴일 **{_canon(p['name'])}** {d.month}/{d.day} ({dday_label(d, today)})")
+    if include_prev and prev_h:
+        d, p = prev_h
+        parts.append(f"최근 지난 공휴일 **{_canon(p['name'])}** {d.month}/{d.day} ({dday_label(d, today)})")
+    if not parts:
+        return []
+    return ["", "🗓️ " + " · ".join(parts)]
 
 
 def render_special_days(target: date, today: date | None = None) -> str:
@@ -157,6 +216,7 @@ def render_special_days(target: date, today: date | None = None) -> str:
             lines.extend(_entry_lines(e))
         if len(public) > len(shown):
             lines.append(f"- 이 외 {len(public) - len(shown)}건의 기념일이 더 있어요.")
+        lines.extend(_holiday_footer(target, today))
         lines.append("")
         lines.append("👉 선물이 필요하면 `recommend_gifts`, 보낼 메시지는 `generate_celebration_message`를 사용하세요.")
         return "\n".join(lines)
@@ -165,6 +225,7 @@ def render_special_days(target: date, today: date | None = None) -> str:
     lines = [title, "", "이 날짜에 등록된 기념일은 없어요. 대신 가까운 챙길 만한 날을 알려드릴게요:", ""]
     for target_date, e in upcoming:
         lines.extend(_entry_lines(e, target_date, today))
+    lines.extend(_holiday_footer(target, today))
     return "\n".join(lines)
 
 
@@ -204,9 +265,14 @@ def render_upcoming(days: int, category: str | None = None, today: date | None =
     if not entries:
         return f"## 다가오는 기념일\n\n{scope}에는 등록된 기념일이 없어요. `days`를 늘려서 다시 조회해 보세요."
     lines = [f"## 다가오는 기념일 ({scope})", ""]
+    has_holiday = False
     for target, e in entries:
         badge = f" `{e['badge']}`" if e.get("badge") else ""
+        if e.get("is_holiday"):
+            has_holiday = True
         lines.append(f"- **{target.month}/{target.day} ({dday_label(target, today)})** {e['name']}{badge} — {e['care_point']}")
+    if not has_holiday:  # 조회 기간에 공휴일이 없으면 다음 공휴일을 따로 안내
+        lines.extend(_holiday_footer(today, today, include_prev=False))
     return "\n".join(lines)
 
 
@@ -223,11 +289,12 @@ def render_search(query: str, category: str | None = None, today: date | None = 
             curated_matches.append(e)
     curated_names = {e["name"] for e in curated_matches}
 
+    wants_holiday = "휴일" in q  # "공휴일", "휴일" 검색 → 공휴일 전체 매칭
     public_matches: list[tuple[date, dict]] = []
     for p in PUBLIC_ENTRIES:
         if category and p["category"] != category:
             continue
-        if q not in p["name"].lower():
+        if q not in p["name"].lower() and not (wants_holiday and p.get("is_holiday")):
             continue
         canon = DEDUP_ALIASES.get(p["name"], p["name"])
         if canon in curated_names:
@@ -314,6 +381,8 @@ def render_gifts(occasion: str, relationship: str, budget: str | None = None) ->
         lines.append(f"📍 함께 가기 좋은 곳: [카카오맵에서 '{place}' 검색]({map_link(place)})")
     lines.append("")
     lines.append("✉️ 함께 보낼 메시지는 `generate_celebration_message`로 만들 수 있어요.")
+    lines.append("")
+    lines.append("※ 사용자에게 선물을 추천할 때는 위 각 선물의 선물하기 검색 링크를 반드시 함께 전달하세요.")
     return "\n".join(lines)
 
 
@@ -426,4 +495,6 @@ def render_plan(target: date, relationship: str, budget: str | None = None, toda
         lines.append(f"   {i}. {_fill_occasion(tpl, main['name'])}")
     lines.append("")
     lines.append("이대로 보내도 좋고, 예산·톤을 바꿔 다시 요청해도 돼요.")
+    lines.append("")
+    lines.append("※ 사용자에게 선물을 추천할 때는 위 각 선물의 선물하기 검색 링크를 반드시 함께 전달하세요.")
     return "\n".join(lines)

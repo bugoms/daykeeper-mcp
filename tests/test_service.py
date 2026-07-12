@@ -280,3 +280,71 @@ def test_solar_term_generic_care():
     # 경칩(24절기, enrichment 없음) → 일반 문구
     out = service.render_search("경칩", today=date(2026, 1, 1))
     assert "24절기" in out
+
+
+# ---------------------------------------------------------------- 공휴일 안내·대체공휴일
+
+def test_substitute_holiday_badge_distinct():
+    # 2026-03-02 대체공휴일(삼일절) → '대체공휴일' 배지로 공휴일과 구분
+    out = service.render_special_days(date(2026, 3, 2), today=date(2026, 3, 2))
+    assert "대체공휴일(삼일절)" in out
+    assert "`대체공휴일`" in out
+    # 원 공휴일(삼일절 3/1)은 '공휴일' 배지 유지... 큐레이션 삼일절이 우선이므로 3/1은 큐레이션 표기
+    out2 = service.render_special_days(date(2026, 8, 17), today=date(2026, 8, 17))
+    assert "`대체공휴일`" in out2  # 대체공휴일(광복절)
+
+
+def test_nearest_holidays_prev_and_next():
+    prev_h, next_h = service.nearest_holidays(date(2026, 9, 20))
+    assert prev_h and prev_h[0] == date(2026, 8, 17)  # 대체공휴일(광복절)
+    assert next_h and next_h[1]["name"] == "추석"
+
+
+def test_holiday_footer_in_special_days():
+    out = service.render_special_days(date(2026, 9, 20), today=date(2026, 9, 20))
+    assert "다음 공휴일" in out
+    assert "추석" in out
+    assert "최근 지난 공휴일" in out
+
+
+def test_holiday_footer_uses_canonical_name():
+    # 12/20 기준 다음 공휴일은 기독탄신일(12/25) → 표시는 '크리스마스'
+    out = service.render_special_days(date(2026, 12, 20), today=date(2026, 12, 20))
+    assert "다음 공휴일" in out
+    assert "기독탄신일" not in out
+    assert "크리스마스" in out
+
+
+def test_upcoming_footer_when_no_holiday_in_window():
+    # 7/20~7/27에는 공휴일 없음 → 다음 공휴일(광복절) 안내 푸터
+    out = service.render_upcoming(7, today=date(2026, 7, 20))
+    assert "다음 공휴일" in out
+    assert "광복절" in out
+
+
+def test_search_holiday_keyword_lists_holidays():
+    out = service.render_search("공휴일", today=date(2026, 9, 1))
+    assert "찾지 못했어요" not in out
+    assert "추석" in out
+
+
+# ---------------------------------------------------------------- 선물 링크 보장
+
+def test_special_days_with_gift_tags_include_gift_link():
+    # 세계 고양이의 날(8/8): 챙김 포인트에 선물 언급 → 선물하기 링크 동반 필수
+    out = service.render_special_days(date(2026, 8, 8), today=date(2026, 8, 8))
+    assert "gift.kakao.com/search/result?query=" in out
+
+
+def test_gifts_output_has_link_per_item_and_instruction():
+    out = service.render_gifts("생일", "friend", "under_10k")
+    items = out.count("- **")
+    links = out.count("gift.kakao.com/search/result?query=")
+    assert items >= 3 and links >= items  # 아이템마다 링크 1개 이상
+    assert "반드시 함께 전달" in out
+
+
+def test_plan_has_links_and_instruction():
+    out = service.render_plan(date(2026, 9, 24), "parent", today=date(2026, 9, 24))
+    assert out.count("gift.kakao.com") >= 2
+    assert "반드시 함께 전달" in out

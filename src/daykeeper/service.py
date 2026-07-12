@@ -1,9 +1,15 @@
-"""조회·추천·생성 핵심 로직. 전부 내장 JSON 기반 순수 함수 — 외부 호출 없음."""
+"""조회·추천·생성 핵심 로직. 전부 내장 JSON 기반 순수 함수 — 런타임 외부 호출 없음.
+
+데이터 소스 2종:
+- special_days.json  : 큐레이션 기념일 (월/일 고정, 재미있는 날 중심)
+- public_days.json   : KASI 특일 정보 API 빌드 타임 스냅샷 (연도별 공휴일·명절·절기·법정기념일)
+  → scripts/sync_public_days.py 로 갱신. 서버는 파일만 읽으므로 API 키 불필요.
+"""
 
 from __future__ import annotations
 
 import json
-from datetime import date, timedelta
+from datetime import date
 from pathlib import Path
 from urllib.parse import quote
 
@@ -32,7 +38,60 @@ BUDGET_KO = {
     "30k_50k": "3~5만원",
     "over_50k": "5만원 이상",
 }
-_BUDGET_ORDER = ["under_10k", "10k_30k", "30k_50k", "over_50k"]
+
+# ------------------------------------------------- 공공데이터(KASI 특일) 로드
+
+KIND_KO = {
+    "holiday": "공휴일",
+    "national": "국경일",
+    "anniversary": "기념일",
+    "solar_term": "24절기",
+    "sundry": "세시풍속",
+}
+_KIND_ORDER = {"holiday": 0, "national": 1, "sundry": 2, "solar_term": 3, "anniversary": 4}
+_KIND_CARE = {
+    "holiday": "공휴일이에요. 소중한 사람과 함께 보내기 좋은 날",
+    "national": "국경일의 의미를 되새겨 보세요",
+    "anniversary": "국가 지정 기념일이에요. 관련된 지인이 있다면 안부를 전해 보세요",
+    "solar_term": "계절의 변화를 알리는 24절기예요",
+    "sundry": "전통 세시풍속이에요",
+}
+# 큐레이션 데이터와 이름이 다른 동일 기념일 (공공데이터 쪽을 숨김)
+DEDUP_ALIASES = {
+    "기독탄신일": "크리스마스",
+    "1월1일": "새해 첫날",
+    "노동절": "근로자의 날",
+}
+
+
+def _norm_public(e: dict) -> dict:
+    kind = e["kind"]
+    return {
+        "id": f"pub-{e['year']:04d}{e['month']:02d}{e['day']:02d}-{e['name']}",
+        "name": e["name"],
+        "name_en": None,
+        "badge": KIND_KO[kind],
+        "category": "official" if kind in ("holiday", "national", "anniversary") else "culture",
+        "origin": None,
+        "care_point": e.get("care_point") or _KIND_CARE[kind],
+        "gift_tags": e.get("gift_tags") or [],
+        "place_query": e.get("place_query"),
+        "year": e["year"],
+        "month": e["month"],
+        "day": e["day"],
+        "kind": kind,
+        "public": True,
+    }
+
+
+_PUBLIC_PATH = _DATA_DIR / "public_days.json"
+if _PUBLIC_PATH.exists():
+    _raw_public = json.loads(_PUBLIC_PATH.read_text(encoding="utf-8"))
+    PUBLIC_ENTRIES: list[dict] = [_norm_public(e) for e in _raw_public.get("days", [])]
+    PUBLIC_YEARS: list[int] = _raw_public.get("years", [])
+else:  # 동기화 전에도 서버·테스트가 동작하도록
+    PUBLIC_ENTRIES = []
+    PUBLIC_YEARS = []
 
 
 def gift_link(keyword: str) -> str:
@@ -49,11 +108,34 @@ def days_for(month: int, day: int) -> list[dict]:
     return [d for d in SPECIAL_DAYS if d["month"] == month and d["day"] == day]
 
 
+def entries_for_date(target: date) -> tuple[list[dict], list[dict]]:
+    """해당 날짜의 (큐레이션, 공공데이터) 항목. 이름 중복은 큐레이션 우선."""
+    curated = days_for(target.month, target.day)
+    curated_names = {c["name"] for c in curated}
+    public = []
+    for p in PUBLIC_ENTRIES:
+        if (p["year"], p["month"], p["day"]) != (target.year, target.month, target.day):
+            continue
+        canon = DEDUP_ALIASES.get(p["name"], p["name"])
+        if canon in curated_names:
+            continue
+        public.append(p)
+    public.sort(key=lambda p: (_KIND_ORDER.get(p["kind"], 9), p["name"]))
+    return curated, public
+
+
 def _entry_lines(entry: dict, target: date | None = None, today: date | None = None) -> list[str]:
-    head = f"**{entry['name']}** ({entry['name_en']})"
+    head = f"**{entry['name']}**"
+    if entry.get("name_en"):
+        head += f" ({entry['name_en']})"
+    if entry.get("badge"):
+        head += f" `{entry['badge']}`"
     if target is not None and today is not None:
         head += f" — {target.month}/{target.day} ({dday_label(target, today)})"
-    lines = [f"- {head}", f"  - {entry['origin']}", f"  - 💡 {entry['care_point']}"]
+    lines = [f"- {head}"]
+    if entry.get("origin"):
+        lines.append(f"  - {entry['origin']}")
+    lines.append(f"  - 💡 {entry['care_point']}")
     if entry.get("place_query"):
         lines.append(f"  - 📍 [카카오맵에서 '{entry['place_query']}' 검색]({map_link(entry['place_query'])})")
     return lines
@@ -61,15 +143,20 @@ def _entry_lines(entry: dict, target: date | None = None, today: date | None = N
 
 def render_special_days(target: date, today: date | None = None) -> str:
     today = today or today_kst()
-    entries = days_for(target.month, target.day)
+    curated, public = entries_for_date(target)
     title = f"## {target.year}년 {target.month}월 {target.day}일"
     if target == today:
         title += " (오늘)"
 
-    if entries:
+    if curated or public:
         lines = [title, ""]
-        for e in entries:
+        for e in curated:
             lines.extend(_entry_lines(e))
+        shown = public[:5]
+        for e in shown:
+            lines.extend(_entry_lines(e))
+        if len(public) > len(shown):
+            lines.append(f"- 이 외 {len(public) - len(shown)}건의 기념일이 더 있어요.")
         lines.append("")
         lines.append("👉 선물이 필요하면 `recommend_gifts`, 보낼 메시지는 `generate_celebration_message`를 사용하세요.")
         return "\n".join(lines)
@@ -82,14 +169,29 @@ def render_special_days(target: date, today: date | None = None) -> str:
 
 
 def _upcoming_entries(start: date, days: int, category: str | None) -> list[tuple[date, dict]]:
-    result = []
+    result: list[tuple[date, dict]] = []
+    seen: set[tuple[date, str]] = set()
     for e in SPECIAL_DAYS:
         if category and e["category"] != category:
             continue
         occ = next_occurrence(e["month"], e["day"], start)
         if (occ - start).days <= days:
             result.append((occ, e))
-    result.sort(key=lambda t: (t[0], t[1]["id"]))
+            seen.add((occ, e["name"]))
+    for p in PUBLIC_ENTRIES:
+        try:
+            d = date(p["year"], p["month"], p["day"])
+        except ValueError:
+            continue
+        if not 0 <= (d - start).days <= days:
+            continue
+        if category and p["category"] != category:
+            continue
+        canon = DEDUP_ALIASES.get(p["name"], p["name"])
+        if (d, canon) in seen:
+            continue
+        result.append((d, p))
+    result.sort(key=lambda t: (t[0], t[1].get("public", False), _KIND_ORDER.get(t[1].get("kind"), -1), t[1]["id"]))
     return result
 
 
@@ -103,26 +205,48 @@ def render_upcoming(days: int, category: str | None = None, today: date | None =
         return f"## 다가오는 기념일\n\n{scope}에는 등록된 기념일이 없어요. `days`를 늘려서 다시 조회해 보세요."
     lines = [f"## 다가오는 기념일 ({scope})", ""]
     for target, e in entries:
-        lines.append(f"- **{target.month}/{target.day} ({dday_label(target, today)})** {e['name']} — {e['care_point']}")
+        badge = f" `{e['badge']}`" if e.get("badge") else ""
+        lines.append(f"- **{target.month}/{target.day} ({dday_label(target, today)})** {e['name']}{badge} — {e['care_point']}")
     return "\n".join(lines)
 
 
 def render_search(query: str, category: str | None = None, today: date | None = None) -> str:
     today = today or today_kst()
     q = query.strip().lower()
-    matches = []
+
+    curated_matches = []
     for e in SPECIAL_DAYS:
         if category and e["category"] != category:
             continue
         haystack = " ".join([e["name"], e["name_en"], e["origin"], e["care_point"], " ".join(e["gift_tags"])]).lower()
         if q in haystack:
-            matches.append(e)
-    if not matches:
-        return f"'{query}'와 관련된 기념일을 찾지 못했어요. 다른 키워드(예: 고양이, 커피, 초콜릿, 연인)로 검색해 보세요."
-    lines = [f"## '{query}' 관련 기념일 ({len(matches)}건)", ""]
-    for e in matches:
+            curated_matches.append(e)
+    curated_names = {e["name"] for e in curated_matches}
+
+    public_matches: list[tuple[date, dict]] = []
+    for p in PUBLIC_ENTRIES:
+        if category and p["category"] != category:
+            continue
+        if q not in p["name"].lower():
+            continue
+        canon = DEDUP_ALIASES.get(p["name"], p["name"])
+        if canon in curated_names:
+            continue
+        d = date(p["year"], p["month"], p["day"])
+        if d >= today:
+            public_matches.append((d, p))
+    public_matches.sort(key=lambda t: t[0])
+    public_matches = public_matches[:5]
+
+    total = len(curated_matches) + len(public_matches)
+    if total == 0:
+        return f"'{query}'와 관련된 기념일을 찾지 못했어요. 다른 키워드(예: 고양이, 커피, 설날, 연인)로 검색해 보세요."
+    lines = [f"## '{query}' 관련 기념일 ({total}건)", ""]
+    for e in curated_matches:
         occ = next_occurrence(e["month"], e["day"], today)
         lines.extend(_entry_lines(e, occ, today))
+    for d, p in public_matches:
+        lines.extend(_entry_lines(p, d, today))
     return "\n".join(lines)
 
 
@@ -134,10 +258,21 @@ def _occasion_tags(occasion: str) -> list[str]:
         if e["name"].lower() in occ or occ in e["name"].lower():
             if e["gift_tags"]:
                 return e["gift_tags"]
+    for p in PUBLIC_ENTRIES:  # 설날·추석·복날 등 enrichment된 공공 기념일
+        if p["gift_tags"] and (p["name"] in occasion or occ in p["name"].lower()):
+            return p["gift_tags"]
     for key, tags in OCCASION_TAGS.items():
         if key in occasion:
             return tags
     return []
+
+
+def _occasion_place(occasion: str) -> str | None:
+    day = next((e for e in SPECIAL_DAYS if e["name"] in occasion and e.get("place_query")), None)
+    if day:
+        return day["place_query"]
+    pub = next((p for p in PUBLIC_ENTRIES if p["name"] in occasion and p.get("place_query")), None)
+    return pub["place_query"] if pub else None
 
 
 def _pick_gifts(tags: list[str], relationship: str, budget: str | None, limit: int = 4) -> list[dict]:
@@ -173,10 +308,10 @@ def render_gifts(occasion: str, relationship: str, budget: str | None = None) ->
         lines.append(f"- **{item['name']}** ({item['price_range']})")
         lines.append(f"  - {item['reason']}")
         lines.append(f"  - 🎁 [선물하기에서 '{kw}' 검색]({gift_link(kw)})")
-    day = next((e for e in SPECIAL_DAYS if e["name"] in occasion and e.get("place_query")), None)
-    if day:
+    place = _occasion_place(occasion)
+    if place:
         lines.append("")
-        lines.append(f"📍 함께 가기 좋은 곳: [카카오맵에서 '{day['place_query']}' 검색]({map_link(day['place_query'])})")
+        lines.append(f"📍 함께 가기 좋은 곳: [카카오맵에서 '{place}' 검색]({map_link(place)})")
     lines.append("")
     lines.append("✉️ 함께 보낼 메시지는 `generate_celebration_message`로 만들 수 있어요.")
     return "\n".join(lines)
@@ -251,26 +386,29 @@ def render_milestones(start: date, count: int = 5, today: date | None = None) ->
 
 def render_plan(target: date, relationship: str, budget: str | None = None, today: date | None = None) -> str:
     today = today or today_kst()
-    entries = days_for(target.month, target.day)
+    curated, public = entries_for_date(target)
+    merged = curated + public
     rel_ko = RELATIONSHIP_KO.get(relationship, relationship)
 
-    if not entries:
+    if not merged:
         upcoming = _upcoming_entries(target, 30, None)
         if not upcoming:
             return "가까운 기념일을 찾지 못했어요."
         target, main = upcoming[0]
         note = f"요청한 날짜에 기념일이 없어 가장 가까운 **{main['name']}** ({target.month}/{target.day}, {dday_label(target, today)}) 기준으로 플랜을 만들었어요.\n"
     else:
-        main = next((e for e in entries if e["gift_tags"]), entries[0])
+        main = next((e for e in merged if e["gift_tags"]), merged[0])
         note = ""
 
     lines = [f"# {main['name']} 챙김 플랜 ({rel_ko})", ""]
     if note:
         lines.append(note)
-    lines.append(f"**1. 오늘 무슨 날?** — {main['origin']}")
-    others = [e["name"] for e in entries if e["id"] != main["id"]]
+    badge = main.get("badge", "기념일")
+    about = main.get("origin") or f"{badge}{'으로' if _has_batchim(badge) else '로'} 지정된 날이에요"
+    lines.append(f"**1. 오늘 무슨 날?** — {about}")
+    others = [e["name"] for e in merged if e["id"] != main.get("id")]
     if others:
-        lines.append(f"   (같은 날: {', '.join(others)})")
+        lines.append(f"   (같은 날: {', '.join(others[:4])})")
     lines.append(f"   💡 {main['care_point']}")
     if main.get("place_query"):
         lines.append(f"   📍 [카카오맵에서 '{main['place_query']}' 검색]({map_link(main['place_query'])})")

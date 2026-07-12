@@ -10,8 +10,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from daykeeper import service  # noqa: E402
 
 covered = {(d["month"], d["day"]) for d in service.SPECIAL_DAYS}
-print(f"기념일 엔트리: {len(service.SPECIAL_DAYS)}건")
-print(f"직접 커버 날짜: {len(covered)}/366일")
+pub_2026 = {(p["month"], p["day"]) for p in service.PUBLIC_ENTRIES if p["year"] == 2026}
+print(f"큐레이션 엔트리: {len(service.SPECIAL_DAYS)}건, 공공데이터 엔트리: {len(service.PUBLIC_ENTRIES)}건 (연도: {service.PUBLIC_YEARS})")
+print(f"큐레이션만 커버: {len(covered)}/366일 → 공공데이터 포함(2026): {len(covered | pub_2026)}/366일")
+covered = covered | pub_2026
 
 # 최대 공백 구간 계산 (평년 기준)
 gaps = []

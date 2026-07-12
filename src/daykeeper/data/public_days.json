@@ -1,0 +1,2571 @@
+{
+ "synced_at": "2026-07-12",
+ "years": [
+  2026,
+  2027
+ ],
+ "days": [
+  {
+   "year": 2026,
+   "month": 1,
+   "day": 1,
+   "name": "1월1일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 1,
+   "day": 5,
+   "name": "소한",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 1,
+   "day": 20,
+   "name": "대한",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 4,
+   "name": "입춘",
+   "kind": "solar_term",
+   "is_holiday": false,
+   "care_point": "봄의 시작을 알리는 절기. 새 출발 응원 인사를 전해 보세요"
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 16,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 17,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 18,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 19,
+   "name": "우수",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 2,
+   "day": 28,
+   "name": "2·28 민주운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 1,
+   "name": "삼일절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 2,
+   "name": "대체공휴일(삼일절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 3,
+   "name": "납세자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 3,
+   "name": "정월대보름",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "부럼 깨고 오곡밥 나눠 먹는 날",
+   "gift_tags": [
+    "health_food"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 5,
+   "name": "경칩",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 8,
+   "name": "3·8민주의거 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 15,
+   "name": "3·15 의거 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 18,
+   "name": "상공의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 19,
+   "name": "의용소방대의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 20,
+   "name": "춘분",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 3,
+   "day": 27,
+   "name": "서해수호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 3,
+   "name": "4·3희생자 추념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 3,
+   "name": "예비군의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 5,
+   "name": "식목일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 5,
+   "name": "청명",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 6,
+   "name": "한식",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "조상을 기리고 성묘하는 전통 명절"
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 7,
+   "name": "보건의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 11,
+   "name": "대한민국임시정부 수립기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 11,
+   "name": "도시농업의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 19,
+   "name": "4·19혁명 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 20,
+   "name": "장애인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 20,
+   "name": "곡우",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 21,
+   "name": "과학의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 22,
+   "name": "정보통신의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 24,
+   "name": "순직의무군경의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 25,
+   "name": "법의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 4,
+   "day": 28,
+   "name": "충무공 이순신 탄신일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 1,
+   "name": "노동절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 1,
+   "name": "근로자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 5,
+   "name": "어린이날",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 5,
+   "name": "어린이 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 5,
+   "name": "입하",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 8,
+   "name": "어버이 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 10,
+   "name": "유권자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 11,
+   "name": "동학농민혁명 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 11,
+   "name": "입양의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 14,
+   "name": "식품안전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 15,
+   "name": "스승의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 18,
+   "name": "5·18민주화운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 18,
+   "name": "성년의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 19,
+   "name": "발명의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 20,
+   "name": "세계인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 21,
+   "name": "부부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 21,
+   "name": "소만",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 24,
+   "name": "부처님오신날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "연등 나들이 가기 좋은 날",
+   "place_query": "연등축제"
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 25,
+   "name": "대체공휴일(부처님오신날)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 29,
+   "name": "해외 파병용사의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 5,
+   "day": 31,
+   "name": "바다의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 1,
+   "name": "의병의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 3,
+   "name": "전국동시지방선거",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 5,
+   "name": "환경의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 6,
+   "name": "현충일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 6,
+   "name": "망종",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 9,
+   "name": "구강보건의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 10,
+   "name": "6·10만세운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 10,
+   "name": "6·10민주항쟁 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 19,
+   "name": "단오",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "창포물에 머리 감던 전통 명절, 부채를 선물하던 유래가 있는 날",
+   "gift_tags": [
+    "wellness"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 21,
+   "name": "하지",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 24,
+   "name": "전자정부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 25,
+   "name": "6·25전쟁일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 26,
+   "name": "마약퇴치의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 6,
+   "day": 28,
+   "name": "철도의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 7,
+   "name": "소서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 8,
+   "name": "정보보호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 11,
+   "name": "인구의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 14,
+   "name": "북한이탈주민의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 15,
+   "name": "초복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "삼계탕으로 몸보신하는 날! 지친 가족·동료와 보양식 어떠세요",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 17,
+   "name": "제헌절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 23,
+   "name": "대서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 25,
+   "name": "중복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "무더위 절정, 보양식으로 기력 충전하는 날",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2026,
+   "month": 7,
+   "day": 27,
+   "name": "유엔군 참전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 7,
+   "name": "입추",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 8,
+   "name": "섬의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 14,
+   "name": "말복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "여름 마무리 보양식 데이. 고생한 사람들과 몸보신 어떠세요",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 15,
+   "name": "광복절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 17,
+   "name": "대체공휴일(광복절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 19,
+   "name": "칠석",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "견우와 직녀가 만나는 한국의 로맨틱 데이",
+   "gift_tags": [
+    "flower",
+    "letter"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 8,
+   "day": 23,
+   "name": "처서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 7,
+   "name": "곤충의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 7,
+   "name": "사회복지의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 7,
+   "name": "푸른 하늘의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 7,
+   "name": "백로",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 10,
+   "name": "해양경찰의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 19,
+   "name": "청년의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 23,
+   "name": "추분",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 24,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 25,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 26,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 30,
+   "name": "개인정보 보호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 9,
+   "day": 30,
+   "name": "조달의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 1,
+   "name": "국군의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 2,
+   "name": "노인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 3,
+   "name": "개천절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 5,
+   "name": "대체공휴일(개천절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 5,
+   "name": "세계 한인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 8,
+   "name": "재향군인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 8,
+   "name": "한로",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 9,
+   "name": "한글날",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 10,
+   "name": "임산부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 10,
+   "name": "정신건강의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 15,
+   "name": "스포츠의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 16,
+   "name": "부마민주항쟁 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 17,
+   "name": "문화의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 21,
+   "name": "경찰의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 23,
+   "name": "상강",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 24,
+   "name": "국제연합일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 27,
+   "name": "금융의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 28,
+   "name": "교정의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 10,
+   "day": 29,
+   "name": "지방자치 및 균형발전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 3,
+   "name": "학생독립운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 7,
+   "name": "입동",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 9,
+   "name": "소방의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 11,
+   "name": "농업인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 11,
+   "name": "유엔참전용사 국제추모의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 17,
+   "name": "순국선열의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 19,
+   "name": "아동학대 예방의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 22,
+   "name": "김치의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 11,
+   "day": 22,
+   "name": "소설",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 3,
+   "name": "소비자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 5,
+   "name": "무역의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 5,
+   "name": "자원봉사자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 7,
+   "name": "대설",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 22,
+   "name": "동지",
+   "kind": "solar_term",
+   "is_holiday": false,
+   "care_point": "일 년 중 밤이 가장 긴 날, 팥죽 나눠 먹는 날",
+   "gift_tags": [
+    "dessert"
+   ],
+   "place_query": "팥죽 맛집"
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 25,
+   "name": "기독탄신일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2026,
+   "month": 12,
+   "day": 27,
+   "name": "원자력 안전 및 진흥의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 1,
+   "day": 1,
+   "name": "1월1일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 1,
+   "day": 5,
+   "name": "소한",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 1,
+   "day": 20,
+   "name": "대한",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 4,
+   "name": "입춘",
+   "kind": "solar_term",
+   "is_holiday": false,
+   "care_point": "봄의 시작을 알리는 절기. 새 출발 응원 인사를 전해 보세요"
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 6,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 7,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 8,
+   "name": "설날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요",
+   "gift_tags": [
+    "premium_food",
+    "health_food",
+    "cash_gift"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 9,
+   "name": "대체공휴일(설날)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 19,
+   "name": "우수",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 21,
+   "name": "정월대보름",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "부럼 깨고 오곡밥 나눠 먹는 날",
+   "gift_tags": [
+    "health_food"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 2,
+   "day": 28,
+   "name": "2·28 민주운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 1,
+   "name": "삼일절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 3,
+   "name": "국립공원의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 3,
+   "name": "납세자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 6,
+   "name": "경칩",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 8,
+   "name": "3·8민주의거 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 8,
+   "name": "여성의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 15,
+   "name": "3·15 의거 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 17,
+   "name": "상공의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 19,
+   "name": "의용소방대의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 21,
+   "name": "암 예방의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 21,
+   "name": "춘분",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 3,
+   "day": 26,
+   "name": "서해수호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 2,
+   "name": "예비군의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 3,
+   "name": "4·3희생자 추념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 5,
+   "name": "식목일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 5,
+   "name": "청명",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 6,
+   "name": "한식",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "조상을 기리고 성묘하는 전통 명절"
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 7,
+   "name": "보건의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 10,
+   "name": "임시의정원 개원기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 11,
+   "name": "대한민국임시정부 수립기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 11,
+   "name": "도시농업의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 16,
+   "name": "국민안전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 19,
+   "name": "4·19혁명 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 20,
+   "name": "장애인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 20,
+   "name": "곡우",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 21,
+   "name": "과학의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 22,
+   "name": "정보통신의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 23,
+   "name": "순직의무군경의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 25,
+   "name": "법의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 28,
+   "name": "산업재해근로자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 4,
+   "day": 28,
+   "name": "충무공 이순신 탄신일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 1,
+   "name": "노동절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 3,
+   "name": "대체공휴일(노동절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 5,
+   "name": "어린이날",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 5,
+   "name": "어린이 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 6,
+   "name": "입하",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 8,
+   "name": "어버이 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 10,
+   "name": "양잠인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 10,
+   "name": "유권자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 10,
+   "name": "한부모가족의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 11,
+   "name": "동학농민혁명 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 11,
+   "name": "입양의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 13,
+   "name": "부처님오신날",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "연등 나들이 가기 좋은 날",
+   "place_query": "연등축제"
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 14,
+   "name": "식품안전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 15,
+   "name": "가정의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 15,
+   "name": "세종대왕 나신 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 15,
+   "name": "스승의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 17,
+   "name": "성년의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 18,
+   "name": "5·18민주화운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 19,
+   "name": "발명의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 20,
+   "name": "세계인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 21,
+   "name": "부부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 21,
+   "name": "소만",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 25,
+   "name": "실종아동의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 27,
+   "name": "우주항공의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 29,
+   "name": "의료기기의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 29,
+   "name": "해외 파병용사의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 31,
+   "name": "국회 개원기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 5,
+   "day": 31,
+   "name": "바다의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 1,
+   "name": "의병의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 5,
+   "name": "환경의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 6,
+   "name": "현충일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 6,
+   "name": "망종",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 9,
+   "name": "구강보건의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 9,
+   "name": "기록의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 9,
+   "name": "단오",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "창포물에 머리 감던 전통 명절, 부채를 선물하던 유래가 있는 날",
+   "gift_tags": [
+    "wellness"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 10,
+   "name": "6·10만세운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 10,
+   "name": "6·10민주항쟁 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 14,
+   "name": "헌혈자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 21,
+   "name": "해양조사의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 21,
+   "name": "하지",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 24,
+   "name": "전자정부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 25,
+   "name": "6·25전쟁일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 26,
+   "name": "마약퇴치의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 28,
+   "name": "6·25전쟁 납북자 기억의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 6,
+   "day": 28,
+   "name": "철도의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 1,
+   "name": "사회적기업의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 7,
+   "name": "도농교류의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 7,
+   "name": "소서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 11,
+   "name": "인구의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 14,
+   "name": "북한이탈주민의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 14,
+   "name": "정보보호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 17,
+   "name": "제헌절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 18,
+   "name": "연안안전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 19,
+   "name": "대체공휴일(제헌절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 20,
+   "name": "초복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "삼계탕으로 몸보신하는 날! 지친 가족·동료와 보양식 어떠세요",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 23,
+   "name": "대서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 27,
+   "name": "유엔군 참전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 7,
+   "day": 30,
+   "name": "중복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "무더위 절정, 보양식으로 기력 충전하는 날",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 8,
+   "name": "섬의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 8,
+   "name": "입추",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 8,
+   "name": "칠석",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "견우와 직녀가 만나는 한국의 로맨틱 데이",
+   "gift_tags": [
+    "flower",
+    "letter"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 14,
+   "name": "일본군위안부 피해자 기림의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 15,
+   "name": "광복절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 16,
+   "name": "대체공휴일(광복절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 8,
+   "day": 23,
+   "name": "처서",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 1,
+   "name": "여권통문의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 1,
+   "name": "통계의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 7,
+   "name": "곤충의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 7,
+   "name": "사회복지의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 7,
+   "name": "푸른 하늘의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 7,
+   "name": "화장품의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 8,
+   "name": "백로",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 9,
+   "name": "숙련기술인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 9,
+   "name": "말복",
+   "kind": "sundry",
+   "is_holiday": false,
+   "care_point": "여름 마무리 보양식 데이. 고생한 사람들과 몸보신 어떠세요",
+   "gift_tags": [
+    "gift_card"
+   ],
+   "place_query": "삼계탕 맛집"
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 10,
+   "name": "해양경찰의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 13,
+   "name": "이산가족의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 14,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 15,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 16,
+   "name": "추석",
+   "kind": "holiday",
+   "is_holiday": true,
+   "care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요",
+   "gift_tags": [
+    "premium_food",
+    "fruit",
+    "health_food"
+   ]
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 18,
+   "name": "청년의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 21,
+   "name": "치매극복의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 23,
+   "name": "추분",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 30,
+   "name": "개인정보 보호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 9,
+   "day": 30,
+   "name": "조달의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 1,
+   "name": "국군의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 2,
+   "name": "노인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 3,
+   "name": "개천절",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 4,
+   "name": "대체공휴일(개천절)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 4,
+   "name": "동물보호의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 5,
+   "name": "세계 한인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 8,
+   "name": "재향군인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 8,
+   "name": "한로",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 9,
+   "name": "한글날",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 9,
+   "name": "호스피스의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 10,
+   "name": "임산부의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 10,
+   "name": "정신건강의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 11,
+   "name": "대체공휴일(한글날)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 15,
+   "name": "스포츠의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 16,
+   "name": "문화의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 16,
+   "name": "부마민주항쟁 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 21,
+   "name": "경찰의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 24,
+   "name": "국제연합일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 24,
+   "name": "상강",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 26,
+   "name": "금융의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 28,
+   "name": "교정의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 10,
+   "day": 29,
+   "name": "지방자치 및 균형발전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 1,
+   "name": "임업인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 3,
+   "name": "학생독립운동 기념일",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 8,
+   "name": "입동",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 9,
+   "name": "소방의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 11,
+   "name": "농업인의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 11,
+   "name": "유엔참전용사 국제추모의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 17,
+   "name": "순국선열의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 18,
+   "name": "약의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 19,
+   "name": "아동학대 예방의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 22,
+   "name": "김치의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 11,
+   "day": 22,
+   "name": "소설",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 3,
+   "name": "소비자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 5,
+   "name": "무역의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 5,
+   "name": "자원봉사자의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 7,
+   "name": "대설",
+   "kind": "solar_term",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 22,
+   "name": "동지",
+   "kind": "solar_term",
+   "is_holiday": false,
+   "care_point": "일 년 중 밤이 가장 긴 날, 팥죽 나눠 먹는 날",
+   "gift_tags": [
+    "dessert"
+   ],
+   "place_query": "팥죽 맛집"
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 25,
+   "name": "기독탄신일",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 27,
+   "name": "대체공휴일(기독탄신일)",
+   "kind": "holiday",
+   "is_holiday": true
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 27,
+   "name": "원자력 안전 및 진흥의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  },
+  {
+   "year": 2027,
+   "month": 12,
+   "day": 29,
+   "name": "항공안전의 날",
+   "kind": "anniversary",
+   "is_holiday": false
+  }
+ ]
+}

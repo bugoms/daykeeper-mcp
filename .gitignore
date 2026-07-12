@@ -8,3 +8,4 @@ build/
 .env
 scripts/*.log
 scripts/e2e_result.txt
+plan.md

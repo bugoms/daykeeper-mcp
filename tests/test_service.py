@@ -207,3 +207,76 @@ def test_map_link_encoding():
     link = service.map_link("삼겹살 맛집")
     assert link.startswith("https://map.kakao.com/?q=")
     assert all(ord(c) < 128 for c in link)
+
+
+# ---------------------------------------------------------------- 공공데이터 병합
+
+def test_public_data_loaded():
+    assert len(service.PUBLIC_ENTRIES) >= 200
+    assert 2026 in service.PUBLIC_YEARS
+
+
+def test_seollal_shows_as_holiday():
+    # 2026 설날 연휴: 2/16~18
+    out = service.render_special_days(date(2026, 2, 17), today=date(2026, 2, 1))
+    assert "설날" in out
+    assert "`공휴일`" in out
+    assert "명절" in out  # enrichment care_point 적용
+
+
+def test_public_dedup_by_alias():
+    # 12/25: 큐레이션 '크리스마스'가 있으므로 공공 '기독탄신일'은 숨김
+    out = service.render_special_days(date(2026, 12, 25), today=date(2026, 12, 1))
+    assert "크리스마스" in out
+    assert "기독탄신일" not in out
+    # 5/1: '근로자의 날'(큐레이션) vs '노동절'(공공)
+    out2 = service.render_special_days(date(2026, 5, 1), today=date(2026, 5, 1))
+    assert "근로자의 날" in out2
+    assert "노동절" not in out2
+
+
+def test_public_dedup_same_name():
+    # 어린이날은 양쪽에 동일 이름 존재 → 한 번만
+    out = service.render_special_days(date(2026, 5, 5), today=date(2026, 5, 5))
+    assert out.count("어린이날") == 1
+
+
+def test_upcoming_includes_public_bokday():
+    # 2026-07-15 초복 (잡절)
+    out = service.render_upcoming(10, today=date(2026, 7, 9))
+    assert "초복" in out
+    assert "몸보신" in out
+
+
+def test_search_finds_seollal_future_only():
+    out = service.render_search("설날", today=date(2026, 7, 9))
+    assert "설날" in out
+    assert "찾지 못했어요" not in out
+    assert "2/16" not in out or "D+" not in out  # 지난 날짜는 안 나옴
+
+
+def test_gifts_for_chuseok_uses_enrichment_tags():
+    out = service.render_gifts("추석", "parent")
+    assert "gift.kakao.com" in out
+    # premium_food/fruit/health_food 태그 계열 아이템이 상위에 나와야 함
+    assert any(k in out for k in ("한우", "과일", "홍삼", "꿀", "샤인머스캣", "견과류"))
+
+
+def test_gifts_for_bokday_has_map_link():
+    out = service.render_gifts("초복", "coworker")
+    assert "삼계탕" in out
+    assert "map.kakao.com" in out
+
+
+def test_plan_on_public_only_date():
+    # 2026-09-25 추석 (큐레이션에는 없는 날)
+    out = service.render_plan(date(2026, 9, 25), "parent", today=date(2026, 9, 25))
+    assert "추석 챙김 플랜" in out
+    assert "선물 아이디어" in out
+    assert "{occasion}" not in out
+
+
+def test_solar_term_generic_care():
+    # 경칩(24절기, enrichment 없음) → 일반 문구
+    out = service.render_search("경칩", today=date(2026, 1, 1))
+    assert "24절기" in out

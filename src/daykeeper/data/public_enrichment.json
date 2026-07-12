@@ -1,0 +1,15 @@
+{
+  "설날": {"care_point": "민족 최대 명절! 부모님·친지께 선물과 안부 전화를 미리 챙기세요", "gift_tags": ["premium_food", "health_food", "cash_gift"], "place_query": null},
+  "추석": {"care_point": "가족과 귀한 분께 마음을 전하는 한가위. 선물세트는 미리 준비하세요", "gift_tags": ["premium_food", "fruit", "health_food"], "place_query": null},
+  "부처님오신날": {"care_point": "연등 나들이 가기 좋은 날", "gift_tags": [], "place_query": "연등축제"},
+  "한식": {"care_point": "조상을 기리고 성묘하는 전통 명절", "gift_tags": [], "place_query": null},
+  "단오": {"care_point": "창포물에 머리 감던 전통 명절, 부채를 선물하던 유래가 있는 날", "gift_tags": ["wellness"], "place_query": null},
+  "초복": {"care_point": "삼계탕으로 몸보신하는 날! 지친 가족·동료와 보양식 어떠세요", "gift_tags": ["gift_card"], "place_query": "삼계탕 맛집"},
+  "중복": {"care_point": "무더위 절정, 보양식으로 기력 충전하는 날", "gift_tags": ["gift_card"], "place_query": "삼계탕 맛집"},
+  "말복": {"care_point": "여름 마무리 보양식 데이. 고생한 사람들과 몸보신 어떠세요", "gift_tags": ["gift_card"], "place_query": "삼계탕 맛집"},
+  "동지": {"care_point": "일 년 중 밤이 가장 긴 날, 팥죽 나눠 먹는 날", "gift_tags": ["dessert"], "place_query": "팥죽 맛집"},
+  "입춘": {"care_point": "봄의 시작을 알리는 절기. 새 출발 응원 인사를 전해 보세요", "gift_tags": [], "place_query": null},
+  "칠석": {"care_point": "견우와 직녀가 만나는 한국의 로맨틱 데이", "gift_tags": ["flower", "letter"], "place_query": null},
+  "정월대보름": {"care_point": "부럼 깨고 오곡밥 나눠 먹는 날", "gift_tags": ["health_food"], "place_query": null},
+  "대보름": {"care_point": "부럼 깨고 오곡밥 나눠 먹는 날", "gift_tags": ["health_food"], "place_query": null}
+}

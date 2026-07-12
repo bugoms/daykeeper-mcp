@@ -42,6 +42,10 @@ async def main() -> None:
                 ("generate_celebration_message", {"occasion": "세계 커피의 날", "relationship": "friend", "tone": "funny"}),
                 ("calc_couple_milestones", {"start_date": "2026-05-02"}),
                 ("create_celebration_plan", {"relationship": "partner", "date": "2026-07-14"}),
+                ("get_special_days", {"date": "2026-09-25"}),
+                ("search_special_days", {"query": "설날"}),
+                ("get_upcoming_special_days", {"days": 7}),
+                ("create_celebration_plan", {"relationship": "coworker", "date": "2026-07-15"}),
             ]
             for name, args in calls:
                 result = await session.call_tool(name, args)

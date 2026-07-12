@@ -20,9 +20,20 @@
 
 - **전송**: MCP Streamable HTTP (경로 `/mcp`), Stateless
 - **런타임**: Python 3.12 + 공식 MCP SDK (FastMCP)
-- **데이터**: 내장 큐레이션 JSON (외부 API 호출 없음 — 전 툴 수 ms 응답)
+- **데이터**: 내장 JSON 2종 (런타임 외부 API 호출 없음 — 전 툴 수 ms 응답)
+  - 큐레이션 기념일 88건 (재미있는 날, 매월 14일 시리즈 등)
+  - 공공데이터 302건 — 설날·추석 연휴, 대체공휴일, 24절기, 삼복 등 연도별 가변 특일 (출처: 한국천문연구원 특일 정보, 공공데이터포털)
 - **시간대**: Asia/Seoul (KST) 고정
 - **헬스체크**: `GET /health`
+
+### 공공데이터 갱신 (빌드 타임)
+
+```bash
+# .env에 KASI_SERVICE_KEY 설정 후 (공공데이터포털에서 발급, .env.example 참고)
+python scripts/sync_public_days.py   # → src/daykeeper/data/public_days.json 재생성
+```
+
+서버는 생성된 JSON만 읽으므로 배포 환경에 API 키가 필요 없습니다.
 
 ## 로컬 실행
 

@@ -27,7 +27,7 @@ async def main() -> None:
             for t in tools:
                 assert "kakao" not in t.name.lower(), f"tool name contains kakao: {t.name}"
                 assert t.description and len(t.description) <= 1024
-                assert "DayKeeper" in t.description, f"{t.name}: description missing service name"
+                assert "Daykeeper(데이키퍼)" in t.description, f"{t.name}: description missing service name"
                 assert t.annotations is not None, f"{t.name}: missing annotations"
                 for field in REQUIRED_ANNOTATIONS:
                     assert getattr(t.annotations, field, None) is not None, f"{t.name}: annotations.{field} unset"

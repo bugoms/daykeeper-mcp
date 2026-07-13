@@ -348,3 +348,37 @@ def test_plan_has_links_and_instruction():
     out = service.render_plan(date(2026, 9, 24), "parent", today=date(2026, 9, 24))
     assert out.count("gift.kakao.com") >= 2
     assert "반드시 함께 전달" in out
+
+
+# ---------------------------------------------------- 사용 피드백 반영 (2026-07)
+
+def test_special_days_multi_entry_note():
+    # 8/8 포도데이+세계 고양이의 날 → 모두 알려주라는 안내 포함
+    out = service.render_special_days(date(2026, 8, 8), today=date(2026, 8, 8))
+    assert "모두 알려준 뒤" in out
+
+
+def test_upcoming_from_future_start_crosses_year():
+    # 12/20 기준 16일 조회 → 연말연시 경계를 넘어 새해 기념일까지
+    out = service.render_upcoming(16, today=date(2026, 7, 13), start=date(2026, 12, 20))
+    assert "2026-12-20부터 16일 안" in out
+    assert "크리스마스" in out
+    assert "새해 첫날" in out
+
+
+def test_upcoming_default_scope_unchanged():
+    out = service.render_upcoming(7, today=date(2026, 7, 13))
+    assert "오늘부터 7일 안" in out
+
+
+def test_upcoming_has_gift_nudge():
+    out = service.render_upcoming(7, today=date(2026, 7, 13))
+    assert "recommend_gifts" in out
+    assert "반드시 함께 전달" in out
+
+
+def test_milestones_annotate_coinciding_special_day():
+    # 시작일 2026-09-17 → 100일째가 2026-12-25 (크리스마스)
+    out = service.render_milestones(date(2026, 9, 17), 1, today=date(2026, 10, 1))
+    assert "2026-12-25" in out
+    assert "같은 날: 크리스마스" in out

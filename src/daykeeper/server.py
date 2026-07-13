@@ -52,9 +52,11 @@ def _parse_or_today(date_str: str | None):
     description=(
         "Retrieves special days, fun anniversaries, and commemorative days for a specific date "
         "from DayKeeper(데이키퍼). Returns each day's name, category, origin, and a care tip for "
-        "celebrating it, plus a map-search link when the day has a place context. If the date has "
-        "no registered special day, the nearest upcoming special days are suggested instead. "
-        "The date defaults to today in Korea Standard Time when omitted."
+        "celebrating it, plus a map-search link when the day has a place context. Multiple special "
+        "days often share one date; present all of them to the user first, then focus on the ones "
+        "matching the user's intent. If the date has no registered special day, the nearest "
+        "upcoming special days are suggested instead. The date defaults to today in Korea Standard "
+        "Time when omitted."
     ),
 )
 def get_special_days(date: str | None = None) -> str:
@@ -69,16 +71,25 @@ def get_special_days(date: str | None = None) -> str:
 @mcp.tool(
     annotations=ToolAnnotations(title="다가오는 기념일", **_READ_ONLY),
     description=(
-        "Lists upcoming special days and anniversaries within the next N days (1-30) from "
+        "Lists upcoming special days and anniversaries within N days (1-30) from "
         "DayKeeper(데이키퍼), each with its date, D-day count, and a celebration tip. Useful for "
         "planning ahead which days to celebrate with a partner, friend, family member, or coworker. "
-        "An optional category filter narrows results (official, international, love, fun, food, "
-        "animal, culture)."
+        "The window starts today (KST) by default; pass from_date (YYYY-MM-DD) to look ahead from "
+        "a future date instead - e.g. a year-end/new-year window. An optional category filter "
+        "narrows results (official, international, love, fun, food, animal, culture)."
     ),
 )
-def get_upcoming_special_days(days: int = 7, category: Category | None = None) -> str:
+def get_upcoming_special_days(
+    days: int = 7,
+    category: Category | None = None,
+    from_date: str | None = None,
+) -> str:
     days = max(1, min(30, days))
-    return service.render_upcoming(days, category)
+    try:
+        start = _parse_or_today(from_date)
+    except ValueError:
+        return "from_date 형식이 올바르지 않아요. YYYY-MM-DD 형식으로 입력해 주세요. (예: 2026-12-20)"
+    return service.render_upcoming(days, category, start=start)
 
 
 @mcp.tool(
@@ -133,7 +144,9 @@ def generate_celebration_message(
         "Calculates couple milestone anniversaries from DayKeeper(데이키퍼) based on the "
         "relationship start date (YYYY-MM-DD): how many days the couple has been together today "
         "(the start date counts as day 1, Korean convention), and the dates and D-day counts of "
-        "upcoming 100-day milestones and yearly anniversaries. Pure calculation - nothing is stored."
+        "upcoming 100-day milestones and yearly anniversaries. Milestones that fall on a known "
+        "special day are annotated with that day's name - mention it when presenting the milestone. "
+        "Pure calculation - nothing is stored."
     ),
 )
 def calc_couple_milestones(start_date: str, count: int = 5) -> str:

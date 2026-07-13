@@ -218,6 +218,9 @@ def render_special_days(target: date, today: date | None = None) -> str:
             lines.append(f"- 이 외 {len(public) - len(shown)}건의 기념일이 더 있어요.")
         lines.extend(_holiday_footer(target, today))
         lines.append("")
+        total = len(curated) + len(public)
+        if total > 1:
+            lines.append(f"※ 이 날짜에는 기념일이 {total}개 있어요. 사용자에게 먼저 모두 알려준 뒤, 질문 의도에 맞는 기념일을 중심으로 이어가세요.")
         lines.append("👉 선물이 필요하면 `recommend_gifts`, 보낼 메시지는 `generate_celebration_message`를 사용하세요.")
         return "\n".join(lines)
 
@@ -256,10 +259,11 @@ def _upcoming_entries(start: date, days: int, category: str | None) -> list[tupl
     return result
 
 
-def render_upcoming(days: int, category: str | None = None, today: date | None = None) -> str:
+def render_upcoming(days: int, category: str | None = None, today: date | None = None, start: date | None = None) -> str:
     today = today or today_kst()
-    entries = _upcoming_entries(today, days, category)
-    scope = f"오늘부터 {days}일 안"
+    start = start or today
+    entries = _upcoming_entries(start, days, category)
+    scope = f"오늘부터 {days}일 안" if start == today else f"{start.isoformat()}부터 {days}일 안"
     if category:
         scope += f" ({category} 카테고리)"
     if not entries:
@@ -272,7 +276,9 @@ def render_upcoming(days: int, category: str | None = None, today: date | None =
             has_holiday = True
         lines.append(f"- **{target.month}/{target.day} ({dday_label(target, today)})** {e['name']}{badge} — {e['care_point']}")
     if not has_holiday:  # 조회 기간에 공휴일이 없으면 다음 공휴일을 따로 안내
-        lines.extend(_holiday_footer(today, today, include_prev=False))
+        lines.extend(_holiday_footer(start, today, include_prev=False))
+    lines.append("")
+    lines.append("🎁 선물까지 챙기려면 `recommend_gifts`를 이어서 호출하고, 결과의 선물하기 링크를 사용자에게 반드시 함께 전달하세요.")
     return "\n".join(lines)
 
 
@@ -375,6 +381,9 @@ def render_gifts(occasion: str, relationship: str, budget: str | None = None) ->
         lines.append(f"- **{item['name']}** ({item['price_range']})")
         lines.append(f"  - {item['reason']}")
         lines.append(f"  - 🎁 [선물하기에서 '{kw}' 검색]({gift_link(kw)})")
+    if not items:  # 조건에 맞는 큐레이션이 없어도 링크는 항상 제공
+        kw = occasion.strip() or "선물"
+        lines.append(f"- 조건에 딱 맞는 추천을 찾지 못했어요. [선물하기에서 '{kw}' 직접 검색]({gift_link(kw)})")
     place = _occasion_place(occasion)
     if place:
         lines.append("")
@@ -445,7 +454,12 @@ def render_milestones(start: date, count: int = 5, today: date | None = None) ->
     lines = [f"## 우리 사이 마일스톤 (시작일 {start.isoformat()})", "", f"오늘로 **{days_together}일째**예요! 💕", ""]
     for label, d in milestones:
         marker = " 🎉 **오늘!**" if d == today else ""
-        lines.append(f"- **{label}**: {d.isoformat()} ({dday_label(d, today)}){marker}")
+        line = f"- **{label}**: {d.isoformat()} ({dday_label(d, today)}){marker}"
+        curated, public = entries_for_date(d)
+        names = [e["name"] for e in curated + public][:3]
+        if names:
+            line += f" — 같은 날: {', '.join(names)}"
+        lines.append(line)
     lines.append("")
     lines.append("🎁 기념일 선물이 필요하면 `recommend_gifts`에 '100일'이나 '1주년'을 넣어 보세요.")
     return "\n".join(lines)

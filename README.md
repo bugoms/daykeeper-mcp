@@ -9,11 +9,11 @@
 | Tool | 설명 |
 |---|---|
 | `get_special_days` | 특정 날짜(기본: 오늘 KST)의 기념일 조회. 없으면 가까운 기념일 안내 |
-| `get_upcoming_special_days` | 향후 N일 내 기념일 타임라인 + D-day |
+| `get_upcoming_special_days` | 향후 N일 내 기념일 타임라인 + D-day (`from_date`로 미래 기준일 지정 가능) |
 | `search_special_days` | 키워드/카테고리로 기념일 검색 (예: 고양이, 커피) |
 | `recommend_gifts` | 상황 × 관계 × 예산 기반 선물 추천 + 선물 검색 링크 |
 | `generate_celebration_message` | 관계 × 톤별 바로 보낼 수 있는 메시지 초안 3종 |
-| `calc_couple_milestones` | 사귄 날짜 기준 100일 단위·주년 마일스톤 D-day 계산 |
+| `calc_couple_milestones` | 사귄 날짜 기준 100일 단위·주년 마일스톤 D-day 계산 (마일스톤과 겹치는 기념일 표시) |
 | `create_celebration_plan` | 기념일 + 선물 + 메시지를 하나로 묶은 원스톱 챙김 플랜 |
 
 ## 기술 스펙
